@@ -1,0 +1,7 @@
+/data/*
+/epubs/*
+/literature/*
+/output/*
+test*
+reddit_headers.txt
+log.txt

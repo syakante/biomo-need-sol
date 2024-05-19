@@ -1,0 +1,9 @@
+(I) recommend/suggest/found/find that/had to
+(you) should/can/benefit from/need/must
+... helped me/worked for me/
+... helpful
+^ need to make sure it's not mentions of "was not helpful" "didn't help me"
+Imperative https://datascience.stackexchange.com/questions/58372/extract-imperative-sentences-from-a-documentenglish-using-nlp-in-python
+Try ... Check out ... Look into/up ... 
+
+Using positive examples

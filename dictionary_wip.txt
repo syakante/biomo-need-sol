@@ -1,0 +1,52 @@
+AA
+Alcoholics Anonymous
+NA
+Narcotics Anonymous
+12 step(s)
+12-step(s)
+Twelve step(s)
+Twelve-step(s)
+therap(y, eutic, ist)
+CBT
+Cognitive behavior
+DBT
+Dialectical behavior
+MAT/Medication assisted treatment
+In-patient/inpatient
+Out-patient/outpatient
+Rehab/Rehabilitation
+Oxford House
+SAMHSA
+Detox/Detoixification
+Support group
+PAWS/Post acute withdrawal symptoms
+Religion/Religious
+Spirituality/Spiritual
+Exercise/work(ing) out/fitness
+Sponsor
+vvv non-comprehensive list of drugs that might be mentioned vvv
+Methadone
+Suboxone
+Librium
+Benzodiazepines/Benzo(s)
+Pregabalin
+Opiates
+Alcohol
+Xanax
+Marijuana/Weed
+Adderall
+Meth
+Heroin
+Cocaine
+Fentanyl
+Ketamine
+Clonidine
+Valium
+Klonopin
+Gabapentin
+Hydrocodone/Hydros
+Vicodin
+Percocet
+Morphine
+Nicotine
+Dilaudid
