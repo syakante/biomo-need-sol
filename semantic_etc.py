@@ -11,7 +11,8 @@ from gensim.models import Word2Vec
 #import networkx as nx
 #import matplotlib.pyplot as plt
 import itertools
-import sklearn.manifold.TSNE
+#import sklearn.manifold.TSNE
+#^ wtf not found
 
 #tokenized_docs = []
 
@@ -40,7 +41,7 @@ for filename in os.listdir(mydir):
 		dfs.append(pd.read_csv(filepath))
 
 raw = pd.concat(dfs).drop_duplicates()
-#oh lmao i forgor to preprocess it
+
 tokenized_docs = [preprocess_text(x) for x in raw['body']]
 print(len(tokenized_docs))
 # Train Word2Vec model
