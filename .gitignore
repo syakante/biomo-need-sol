@@ -2,6 +2,8 @@
 /epubs/*
 /literature/*
 /output/*
+/transformers/*
 test*
 reddit_headers.txt
 log.txt
+*.model
