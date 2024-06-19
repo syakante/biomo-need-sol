@@ -2,7 +2,7 @@ import re
 import pandas as pd
 from html import unescape
 
-def myfilter(s:str):
+def first_filter(s:str):
 	#general
 	genmatch = "(help|recommend|try|check out|look into|advise)"
 	negmatch = re.compile(r"(?<=not\W|n't\W)" + genmatch, flags = re.I | re.M)
@@ -15,28 +15,26 @@ def myfilter(s:str):
 	secondPerson = re.compile(r"\byou\b (should|could|can|gotta|got to|need|must)", flags = re.I | re.M)
 	return bool(firstPerson.search(s)) or bool(secondPerson.search(s)) or advise
 
-def f(infile):
+def sec_filter(s:str):
+	with open('mywordlist.txt', 'r') as f:
+		mywordlist = f.readlines()
+	myfilter = '|'.join(mywordlist) + ')'
+	mymatch = re.compile(r"("+myfilter, flags = re.I | re.M)
+	return(bool(mymatch.search(s)))
+
+def main(filterfunc, infile, outfile=''):
 	df = pd.read_csv(infile, encoding='utf-8-sig')
 	#mb sth like "advice" "advise"
 	#also consider if the comment anti-reccs one thing but reccs another i.e. re match logic...
 	#i.e. posmatch OR not negmatch
-	mask = [myfilter(x) for x in df['body']]
+	mask = [filterfunc(x) for x in df['body']]
 	df = df[mask]
 	df['body'] = [unescape(x) for x in df['body']]
 
-	outfile = infile.split('.csv')[0] + '_regexed.csv'
+	if len(outfile) < 1:
+		outfile = infile.split('.csv')[0] + '_regexed.csv'
 	df.to_csv(outfile, index=False, encoding='utf-8-sig')
 
-f('data/REDDITORSINRECOVERY_suggest_2023-01-01_2024-01-01.csv')
-print("ok...")
-
-# negmatch = re.compile(r"(?<=not\W|n't\W)(recommend|suggest|try|check out|look into|advise)", re.MULTILINE)
-# posmatch = re.compile(r"(?<!not\W|n't\W)(recommend|suggest|try|check out|look into|advise)", re.MULTILINE)
-# s1 = "I wouldn't recommend xyz."
-# s2 = "I recommend xyz."
-# s3 = "I wouldn't recommend xyz, but I do recommend abc."
-# s4 = "I recommend xyz, but I wouldn't recommend abc."
-# L = [s1, s2, s3, s4]
-# mask = [(bool(posmatch.search(x)) or not (bool(negmatch.search(x)))) for x in L]
-# print(L)
-# print(mask)
+#main(first_filter, 'data/REDDITORSINRECOVERY_suggest_2023-01-01_2024-01-01.csv')
+main(sec_filter, 'data/mydocs.csv', 'second_filter.csv')
+print("Done.")

@@ -3,7 +3,7 @@ from sklearn.manifold import TSNE
 import pandas as pd
 import matplotlib.pyplot as plt
 
-model = Word2Vec.load("C:\\Users\\me\\Documents\\biomotivate\\biomo-need-sol\\w2vmodelv1.model")
+model = Word2Vec.load("w2vmodelv1.model")
 print("Making TSNE...")
 vocab = list(model.wv.key_to_index)
 X = model.wv[vocab]
